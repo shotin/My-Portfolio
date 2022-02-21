@@ -1,0 +1,68 @@
+/****************************NAVBAR ************************/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+:root {
+  --primary: #fff;
+  --primary-gold:#B6AD84;
+  --primary-dark: rgba(255, 255, 255, 0);
+}
+
+body 
+{
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.bg-nav 
+{
+    background-color: #1f1e1e
+} 
+
+.logo 
+{
+    width: 8.7rem!important;
+}
+
+nav a.nav-link 
+{
+    font-size: .8rem;
+    font-weight: bolder;
+    letter-spacing: 0.0037rem;
+    cursor: pointer;
+} 
+
+nav ul li 
+{
+    text-transform: uppercase;
+}
+
+.navbar-nav > li > a 
+{
+    color: var(--primary)!important;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+    border-bottom: 0.1875rem solid var(--primary-dark);
+}
+
+.navbar-brand 
+{
+    max-width: 17.25rem;
+    padding: 0!important;
+    height: 6rem !important;
+}
+
+.navbar-nav > li > a.active, .navbar-nav > li > a:active:focus 
+{
+    border-bottom: 0.1875rem solid var(--primary-gold);
+}
+.navbar-nav > li > a:hover
+{
+    border-bottom: 0.1875rem solid var(--primary-gold);
+}
+
+@media(max-width:760x){
+    .navbar-nav > li > a:hover
+    {
+       width: 10px;
+    }
+     
+}

@@ -1,11 +1,12 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import Hello from './Hello';
+import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
   return (
     <React.Fragment>
-         <Hello />
+       <Navbar />
     </React.Fragment>
   );
 }
