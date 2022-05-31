@@ -1,0 +1,46 @@
+.app__nav {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between!important;
+}
+
+.app__header li {
+    padding: 20px;
+}
+
+.app__header li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    font-family: 'Clash Display', sans-serif!important;
+    font-weight: bolder;
+}
+
+.app__header li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: #882CC4;
+    transition: width .3s;
+}
+
+.app__header li a:hover::after {
+    width: 100%;
+}
+
+.app__shop a:hover {
+    cursor: progress;
+}
+
+/* .explore__header-nav a {
+    color: #000000!important;
+} */
+
+.explore__header-nav a::after {
+    background: none!important;
+}
+
+.explore__header-nav a:hover::after {
+    width: 0!important;
+}

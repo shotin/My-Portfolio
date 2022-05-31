@@ -1,0 +1,117 @@
+.app__about-main {
+    background-color: blueviolet;
+    height: 468px!important;
+}
+
+.app__about-main h1 {
+    font-family: Clash Display;
+    justify-content: flex-end;
+    font-weight:  bolder;
+    font-size: 60px;
+}
+
+.app__about-main p {
+    text-align: justify;
+ }
+
+.center {
+    margin: 100px 0;
+    border-right: none;
+    margin-top: 150px!important;
+}
+
+.center1 {
+    background-color: #000;
+}
+
+.center1 p {
+  text-align: justify;
+}
+
+
+.center1 h1 {
+    font-family: Clash Display;
+    justify-content: flex-end;
+    font-weight:  bolder;
+    font-size: 60px;
+}
+
+.center2 {
+    margin: 50px 0;
+    border-right: 2px solid grey;
+    margin-top: 100px!important;
+}
+
+.center1 h3 {
+    font-family: Clash Display;
+    justify-content: flex-end;
+    font-weight:  bolder;
+    font-size: 30px;
+}
+
+.center3 {
+    margin-top: 100px!important; 
+    margin-left: 50px!important;
+}
+
+.center3 a {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.center3 a:hover {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.app__comic a {
+    border-radius: 0!important;
+    background-color:#882CC4;
+    font-size: 20px;
+    cursor: pointer!important;
+    color: #fff;
+    padding: 10px;
+}
+
+@media(max-width: 760px){
+    .app__about-main {
+        padding: 20px;
+        height: 368px!important;
+    }
+
+    .app__about-main h1 {
+        font-size: 20px;
+    }
+
+    .readbook img {
+        display: none;
+    }
+
+    .app__about-main p {
+       text-align: justify;
+    }
+    
+    .center {
+        margin: 100px 0;
+        padding: 40px;
+        margin-top: 50px!important;
+    }
+
+    .center2{
+        border-right: none;
+        margin-top: 0px!important;
+    }
+
+    .center1 {
+        padding: 40px;
+    }
+
+    .center1 h1, .center1 h3 {
+        font-size: 20px;
+    }
+
+    .center3 {
+        margin-top: 0!important; 
+        margin-left: 0!important;
+    }
+}

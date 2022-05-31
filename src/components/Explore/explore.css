@@ -1,0 +1,49 @@
+@import url('https://api.fontshare.com/css?f[]=clash-display@700&display=swap');
+.comic {
+    font-family: 'Clash Display', sans-serif!important;
+    font-weight: bolder;
+    /* color: #000; */
+}
+
+.nft_img {
+    width: 80%!important;
+}
+
+.nft_img button{
+    width: 100%!important;
+    background-color: #882CC4;
+    border-radius: 0;
+}
+
+.nft_img button:hover{
+    background-color: #882CC4!important;
+}
+
+.volt_img {
+    /* width: 400px;
+    height: 400px; */
+    overflow: hidden; 
+}
+  
+  .inner-img {
+      transition: 1.9s;
+  }
+  
+  .inner-img:hover {
+      transform: scale(1.1);
+  }
+
+  .loader {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+  }
+  .loader .spinner-border {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+  }

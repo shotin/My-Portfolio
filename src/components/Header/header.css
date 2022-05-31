@@ -1,0 +1,50 @@
+@import url('http://fonts.cdnfonts.com/css/clash-display');
+
+.app__comic h1 {
+    font-size: 65px;
+    font-family: 'Clash Display', sans-serif;                                           
+    font-weight: bolder!important;
+    line-height: 80px;
+}
+
+.app__comic a {
+    border-radius: 0!important;
+    background-color:#882CC4;
+    font-size: 25px;
+    cursor: pointer!important;
+}
+
+.app__comic a:hover{
+    color:#ffffff;
+    background: #FF7748!important;
+}
+
+@media(max-width:730px) {
+    .app__comic h1 {
+        font-size: 30px;
+        line-height: 55px;
+    }
+
+    .app__comic a {
+        font-size: 13px;
+        cursor: pointer!important;
+    } 
+}
+
+/* @media(min-width:992px) { */
+    /*! Full-screen */
+.mbr-fullscreen .mbr-overlay {
+    min-height: 100vh; }
+  
+  .mbr-fullscreen {
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    min-height: 100vh;
+    padding-top: 3rem;
+    padding-bottom: 3rem; 
+}

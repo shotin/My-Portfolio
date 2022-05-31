@@ -1,65 +1,82 @@
 import React from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
-import Navbar from "./components/Navbar";
-import Particles from "react-tsparticles";
-import "./App.css";
-import Header from "./components/Header";
+import { Switch, Route } from 'react-router-dom';
+import {Header, Home, About, Comic, Lab, Shop, Navbar, Explore, Meet, News, Admin} from './components/index'
+import { Toggle } from './components/Toggle/Toggle';
+import { useDarkMode } from './components/styles/useDarkMode';
+import { GlobalStyles, lightTheme, darkTheme } from './components/styles/globalStyles';
+import { ThemeProvider } from 'styled-components';
+import Volt from './ComicPDF/Volt';
+import CryptoDetails from './components/NewsDetails/CryptoDetails';
 
 function App() {
+       const [ theme, toggleTheme ] = useDarkMode();
+       const themeMode = theme === 'light' ? lightTheme : darkTheme;
   return (
-    <React.Fragment>
-      <Particles
-      className="particles_canvas"
-        options={{
-          particles: {
-            color: {
-              value: "#ffffff",
-            },
-            links: {
-              color: "#ffffff",
-              distance: 150,
-              enable: true,
-              opacity: 0.5,
-              width: 1,
-            },
-            collisions: {
-              enable: true,
-            },
-            move: {
-              direction: "none",
-              enable: true,
-              outMode: "bounce",
-              random: false,
-              speed: 3.5,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.2,
-            },
-            shape: {
-              type: "square",
-              stroke: {
-                width: 3,
-                color: '#f9ab00'
-              }
-            },
-            size: {
-              random: true,
-              value: 5,
-            },
-          },
-        }}
-      />
-       <Navbar />
-       <Header />
-    </React.Fragment>
+   <React.Fragment>
+  <ThemeProvider theme={themeMode}>
+  <GlobalStyles />
+        <Switch>
+             <Route exact path='/'>
+                    <Header />
+             </Route>
+
+             <Route exact path='/home'>
+                    <Navbar />
+                    <Home />
+             </Route>
+
+             <Route exact path='/about'>
+                   <Navbar />
+                    <About />
+             </Route>
+
+             <Route exact path='/explore'>
+                 <Navbar style={{ backgroundColor:'#882CC4'}} />
+                 <Explore />
+             </Route>
+
+             <Route exact path='/comic'>
+                    <Navbar />
+                    <Comic />
+             </Route>
+
+             <Route exact path='/lab'>
+                    <Navbar />
+                    <Lab />
+             </Route>
+
+             <Route exact path='/shop'>
+                    <Navbar />
+                    <Shop />
+             </Route>
+
+             <Route exact path='/admin'>
+                    <Navbar />
+                    <Admin />
+             </Route>
+
+             <Route exact path='/meet'>
+                    <Navbar />
+                    <Meet />
+             </Route>     
+
+               <Route exact path='/news'>
+                    <Navbar />
+                    <News />
+             </Route>   
+
+              <Route exact path='/Volt'>
+                   <Volt />
+             </Route>    
+
+             <Route exact path='/cryptoDetails'>
+                   <Navbar />
+                   <CryptoDetails />
+             </Route>             
+        </Switch>
+        <Toggle theme={theme} toggleTheme={toggleTheme} />
+        </ThemeProvider>
+   </React.Fragment>
   );
 }
 
