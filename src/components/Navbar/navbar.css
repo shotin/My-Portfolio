@@ -1,19 +1,79 @@
-.app__nav {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between!important;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400&display=swap');
+.app__nav ul {
+    text-align: center!important;
+    margin-right: 140px!important;
 }
 
-.app__header li {
-    padding: 20px;
+@media screen and (max-width:1200px){
+    .app__nav ul {
+        margin-right: 0!important;
+    }
+}
+
+
+  @media screen and (max-width: 760px) {
+        #fixed{
+            top:0;
+        }
+
+        #fixed{
+            position:fixed;
+            right:0;
+            left:0;
+            z-index:1030;
+        }
+
+       .shopLarge {
+           display: none!important;
+       }
+
+       .shopSmall {
+           display: block!important;
+       }
+  
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 120vh;
+        position: absolute;
+        top: 80px;
+        left: -100%;
+        opacity: 1;
+        transition: all 0.5s ease;
+    }
+  
+    .nav-menu.active {
+      background: #fff;
+      left: 0;
+      opacity: 1;
+      transition: all 0.5s ease;
+      z-index: 1;
+      overflow: scroll;
+    }
+}
+
+.logo1 img {
+    width: 151px!important;
+}
+
+.app__header-nav hr {
+    display: none;
+}
+
+.app__header-hunt {
+    display: none;
+}
+
+.cclabs {
+    display: none;
 }
 
 .app__header li a {
     display: inline-block;
     text-decoration: none;
     color: #000;
-    font-family: 'Clash Display', sans-serif!important;
-    font-weight: bolder;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 .app__header li a::after {
@@ -33,14 +93,82 @@
     cursor: progress;
 }
 
-/* .explore__header-nav a {
-    color: #000000!important;
-} */
-
 .explore__header-nav a::after {
     background: none!important;
 }
 
 .explore__header-nav a:hover::after {
     width: 0!important;
+}
+
+@media(max-width:700px){
+    .logo {
+        width: 130px;
+    }
+
+    .about-us {
+        margin-top: -20px!important;
+        margin-bottom: 15px!important;
+    }
+
+    .app_all {
+        background: rgb(255, 255, 255);
+    }
+
+    .app_all {
+        margin-top: -9px!important;
+        padding: 10px!important;
+    }
+
+    .app__header {
+        margin-top: -25px!important;
+    }
+
+    .marginNav {
+        border-bottom: 2px solid rgba(0, 0, 0, 0.105);
+    }
+    .app__header-nav a {
+        font-weight: bolder;
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-top: -5px!important;
+    }
+
+    .app__header-nav hr {
+        display: block;
+        width: 340px;
+        color: #000;
+    }
+    
+    
+    .cclabs {
+        display: block;
+        text-align: left;
+        margin-left: 20px;
+        margin-top: -20px;
+    }
+
+    .cclabs a {
+       text-decoration: none;
+       color: #b03efb;
+    }
+
+    .explore__header-nav {
+        display: none;
+    }
+
+    .app__header-hunt {
+        display: block;
+        text-transform: uppercase;
+        font-size: 20px;
+        text-align: left;
+        color: #fff!important;
+        font-weight: bolder;
+    }
+    
+
+    .app__header-nav {
+        font-size: 20px;
+        text-align: left;
+    }
 }

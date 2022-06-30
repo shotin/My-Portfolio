@@ -1,23 +1,88 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { images } from  '../../constants/index'
 import { Link } from 'react-router-dom';
+// import MailchimpSubscribe from 'react-mailchimp-subscribe';
+// import NewsletterForm from './NewsletterForm';
+import { FaAngleUp } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
 import './news.css'
 
 const News = () => {
+    const [showTopBtn, setShowTopBtn] = useState(false);
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                setShowTopBtn(true);
+            }else {
+                setShowTopBtn(false);
+            }
+        });
+    }, []);
+
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth',
+        });
+    };
+
+    const [values, setValues] = useState({
+        email: '',
+    });
+
+    const [status, setStatus] = useState('');
+    
+   const handleSubmit = (e) => {
+       e.preventDefault()
+       emailjs.send('service_hbel5mr', 'template_p2o0m7w', values, '_d-08AyOzo0pPoswP')
+       .then(res => {
+           setValues({
+            email: ''
+          });
+          setStatus('SUCCESS');
+       }, error => {
+        console.log('FAILED...', error);
+       })
+   }
+
+   useEffect(() => {
+    if(status === 'SUCCESS') {
+      setTimeout(() => {
+        setStatus('');
+      }, 6000);
+    }
+  }, [status]);
+
+  const renderAlert = () => (
+    <div className="px-4 py-3 text-dark mt-4 text-center">
+      <p>Thank you for Subscribing</p>
+    </div>
+  )
+
+
   return (
        <React.Fragment>
-                <main className="app__news_bg">
+                <main className="app__news_bg element">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm-6 seap_me p-2">
                             <h1 className='comic text-uppercase'>Crypto Comics Lab News</h1>
                             <p className='text-uppercase'>Weekly Reports from Our Lab Analysis.</p>
-                            <input type="text" placeholder="Enter Email" className="form-control w-75 p-3" />
-                            <span><button className='btn mt-3 text-white p-3 border-0' style={{backgroundColor:'#882CC4'}}>Subscribe</button></span>
+                           {/* <div className='d-flex'> */}
+                          
+                              <form onSubmit={handleSubmit}>
+                                    <input type="email" name='email' className='form-control p-2 mb-3' placeholder='Enter Email' required />
+                                    <button type='submit' className="btn text-white" style={{background: '#684182', border: 'none!important'}}>
+                                       Subscribe
+                                    </button>
+                                    {status && renderAlert()}
+                              </form>
+                           
                         </div>
             
-                        <div className="col-sm-6 flower">  
-                            <img src={images.flower} alt="" />   
+                        <div className="col-sm-6 subscribeimg">  
+                            <img src={images.flower} alt="" />
                         </div>
                     </div>
                 </div>
@@ -72,35 +137,46 @@ const News = () => {
                     </div>
                 </section>
 
-                <section className=' app__next-big'>
+                <section className='app__next-big'>
                     <div className="container">
-                         <div className="row">
+                        <div className="row">
                          <h2 className='text-uppercase font-weight-bolder mb-3 mt-5'>Other Stories</h2>
-                            <div className="col-sm-4 p-2 mt-5">
-                                <a>
+                            <div className="col-sm-4 p-2 app__others">
+                                <a style={{cursor: 'pointer'}}>
                                     <img src={images.others} className="img-fluid mb-4" alt="" />
                                     <h4 className='text-uppercase font-weight-bolder mb-5'>Crypto and The Current Dip<br></br> in the Market</h4>
                                 </a>
                             </div>
 
-                            <div className="col-sm-4 p-2 mt-5">
-                                <a>
+                            <div className="col-sm-4 p-2">
+                                <a style={{cursor: 'pointer'}}>
                                     <img src={images.OtherRun} className="img-fluid mb-4" alt="" />
                                     <h4 className='text-uppercase font-weight-bolder mb-5'>Sleeping and Waiking Up, A <br/>way to live long</h4>
                                 </a>
                             </div>
 
-                            <div className="col-sm-4 p-2 mt-5">
-                                <a>
+                            <div className="col-sm-4 p-2">
+                                <a style={{cursor: 'pointer'}}>
                                     <img src={images.OtherVolt} className="img-fluid mb-4" alt="" />
                                     <h4 className='text-uppercase font-weight-bolder mb-5'>Who is Michael and What <br />does he do for a Living</h4>
                                 </a>
-                            </div>
+                            </div>    
                          </div>
                     </div>
                 </section>
+
+                <div className="top-to-btm">
+                        {" "}
+                    {showTopBtn && (
+                        <FaAngleUp
+                            className="icon-position icon-style"
+                            onClick={goToTop}
+                        />
+                    )}{" "}
+                </div>
        </React.Fragment>
   )
 }
+
 
 export default News

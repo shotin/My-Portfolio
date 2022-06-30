@@ -7,6 +7,7 @@ import { GlobalStyles, lightTheme, darkTheme } from './components/styles/globalS
 import { ThemeProvider } from 'styled-components';
 import Volt from './ComicPDF/Volt';
 import CryptoDetails from './components/NewsDetails/CryptoDetails';
+import Login from './components/admin/Login';
 
 function App() {
        const [ theme, toggleTheme ] = useDarkMode();
@@ -51,7 +52,7 @@ function App() {
              </Route>
 
              <Route exact path='/admin'>
-                    <Navbar />
+                    {/* <Navbar /> */}
                     <Admin />
              </Route>
 
@@ -72,7 +73,11 @@ function App() {
              <Route exact path='/cryptoDetails'>
                    <Navbar />
                    <CryptoDetails />
-             </Route>             
+             </Route>    
+
+              <Route exact path='/login'>
+                <Login />
+             </Route>       
         </Switch>
         <Toggle theme={theme} toggleTheme={toggleTheme} />
         </ThemeProvider>

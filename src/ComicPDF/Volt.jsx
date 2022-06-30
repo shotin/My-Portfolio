@@ -10,6 +10,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { images } from '../constants';
 import { Link } from 'react-router-dom';
+import './volt.css'
 
 const Volt = () => {
 const defaultLayoutPluginInstance = defaultLayoutPlugin();
@@ -17,13 +18,13 @@ const fullScreenPluginInstance = fullScreenPlugin();
 
 return (
      <React.Fragment>
-          <div className='container'>
-          <Link to="/home"><a className="navbar-brand mt-4"><img src={ images.logo } alt="logo" /></a></Link>
+            <Link to="/home"><a className="container navbar-brand mt-4"><img className=' logo' src={ images.logo } alt="logo" /></a></Link>
+          <div className='container-fluid'>
                  <div className="row">
                       <div className="col-sm-12">
                           <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
-                            <div className="col-md-12 mt-5" style={{width:'100%' }}>
-                                <Viewer fileUrl={images.voltpdf1} plugins={[defaultLayoutPluginInstance, fullScreenPluginInstance.EnterFullScreen]} />
+                            <div className="col-md-12 mt-4" style={{width:'100%' }}>
+                                <Viewer fileUrl={images.voltpdf1} plugins={[defaultLayoutPluginInstance, fullScreenPluginInstance]} />
                             </div>
                           </Worker>   
                       </div>

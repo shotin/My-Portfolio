@@ -47,3 +47,16 @@
     top: 40%;
     left: 50%;
   }
+
+  @media(max-width:750px){
+      .upload  {
+        /* padding: 40px!important; */
+        text-align: center!important;
+        width: 100px;
+        /* margin-left: 25px!important; */
+      }
+
+      .voltBig h1 {
+          margin-top: 150px!important;
+      }
+  }

@@ -4,22 +4,82 @@
     border-top: 0.5px solid #000;
     border-left:0.5px solid #000;
     cursor: pointer;
+    position: relative;
+}
+
+.app__meet_bg {
+    margin-top: -30px!important;
+    overflow: hidden;
+    display: flex;
+}
+
+#container2 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 92%;
+    margin: auto;
+}
+
+.app__desribe-small {
+    display: none;
+}
+
+.app__meet_bg {
+    margin-top: 2px!important;
+}
+
+.describe {
+ position: absolute;
+ bottom: 0;
+ right: 0;
+ background: black;
+ color: white;
+ margin-bottom: 5px;
+ font-family: sans-serif;
+ opacity: 0;
+ visibility: hidden;
+ -webkit-transition: visibility 0s, opacity 0.5s linear; 
+ transition: visibility 0s, opacity 0.5s linear;
+ font-weight: bolder;
 }
 
 .getBorder img {
   cursor: pointer;
 }
 
-/* .sideImg {
-   position: fixed;
-} */
+.creative_up {
+    margin-top: -10px!important;
+}
+
+.creative_up h1 {
+  text-align: left!important;
+}
+
 
 .sideImg img {
-  margin-top: -235px!important;
-  margin-left: -300px!important;
-  width: 70vw; 
+  width: 50vw; 
+  margin-top: -125px;
+  background-attachment: fixed;
   position: fixed;
-  overflow: hidden;
+  display: flex!important;
+  justify-content: center!important;
+}
+
+.meetBorder:hover .getHover {
+    filter: blur(8px);
+  -webkit-filter: blur(8px);
+  /* background-color: #bdbbbb; */
+}
+
+.meetBorder:hover .describe {
+    visibility: visible;
+    opacity: 0.9;
+    padding: 10px;
+    min-height: 239px;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 13px;
+    line-height: 22px!important;
 }
 
 .sideImg p{
@@ -31,8 +91,118 @@
     text-align: justify;
 }
 
+@media(max-width:1030px){
+    .getHover p{
+        font-size: 13px!important;
+        text-align: left;
+    }
 
- @media(max-width:760px){
+    .app__meet_bg {
+        margin-top: 50px!important;
+    }
+
+    .app__meet_bg i {
+        text-align: right!important; 
+    }
+ 
+    .app__desribe-small {
+        display: block;
+    }
+
+    .app__desribe-small p {
+        line-height: 30px!important;
+    }
+
+    .app__desribe-small {
+        text-align: left;
+    }
+
+
+
+      .getHover h4{
+        text-align: left;
+    }
+
+      .getHover p{
+          font-size: 13px!important;
+          text-align: left;
+      }
+
+    .describe {
+        display: flex;
+        align-items: center;
+        line-height: 35px;
+    }
+
+    .smallImage {
+        width: 1360px!important;
+    }
+
+    .meetBorder:hover .getHover {
+        filter: none;
+      -webkit-filter: none;
+      /* background-color: #bdbbbb; */
+    }
+
+    .meetBorder:hover .describe {         
+        display: none;
+    }
+
+    
+}
+
+
+ @media(max-width:660px){
+    .app__meet_bg i {
+        text-align: right!important; 
+    }
+ 
+    .app__desribe-small {
+        display: block;
+    }
+
+    .app__desribe-small p {
+        line-height: 30px!important;
+    }
+
+    .app__desribe-small {
+        text-align: left;
+    }
+
+    .sideImg img {
+        width: 90vw; 
+        position: absolute;
+      }
+
+      .getHover h4{
+        text-align: left;
+    }
+
+      .getHover p{
+          font-size: 13px!important;
+          text-align: left;
+      }
+
+    .describe {
+        display: flex;
+        align-items: center;
+        line-height: 35px;
+    }
+
+    .smallImage {
+        width: 1360px!important;
+    }
+
+    .meetBorder:hover .getHover {
+        filter: none;
+      -webkit-filter: none;
+      /* background-color: #bdbbbb; */
+    }
+
+    .meetBorder:hover .describe {         
+        display: none;
+    }
+
     .app__meet_bg {
         padding: 40px!important;
         text-align: center; 
@@ -55,3 +225,16 @@
     }
     
  }
+
+ @media(max-width: 1000px){
+    .getHover h4 {
+        font-size: 14px;
+    }
+ }
+ 
+ @media(min-width:900px) {
+    .meetBorder:hover .describe {
+        padding: 10px;
+        height: auto;
+    }
+}

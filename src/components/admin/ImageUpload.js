@@ -16,6 +16,11 @@ export default class ImageUpload extends Component {
     };
   }
 
+  logout() {
+    localStorage.clear();
+    window.location.href = 'http://localhost:3000/#/login';
+}
+
   // image onchange hander
   handleChange = (e) => {
     const imagesArray = [];
@@ -38,7 +43,7 @@ export default class ImageUpload extends Component {
       data.append("images[]", this.state.image[i]);
     }
 
-    axios.post("https://arcane-dawn-86332.herokuapp.com/api/images", data)
+    axios.post("http://localhost:8000/api/images", data)
       .then((response) => {
         if (response.status === 200) {
           this.setState({
@@ -109,6 +114,10 @@ export default class ImageUpload extends Component {
                   <h4 className="card-title fw-bold">
                     Upload Comic
                   </h4>
+
+                  <div>
+                    <a href="#" onClick={this.logout()}>LOGOUT</a>
+                  </div>
                 </div>
 
                 <div className="card-body">

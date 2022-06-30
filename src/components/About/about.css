@@ -17,7 +17,7 @@
 .center {
     margin: 100px 0;
     border-right: none;
-    margin-top: 150px!important;
+    margin-top: 90px!important;
 }
 
 .center1 {
@@ -73,10 +73,20 @@
     padding: 10px;
 }
 
+@media(max-width:1000px){
+    .readbook img {
+        margin-top: 100px!important;
+       }
+}
+
 @media(max-width: 760px){
     .app__about-main {
         padding: 20px;
-        height: 368px!important;
+        height: 685px!important;
+    }
+
+    .aboutUp {
+        margin-top: -9px!important;
     }
 
     .app__about-main h1 {
@@ -84,7 +94,12 @@
     }
 
     .readbook img {
-        display: none;
+     margin-top: -90px!important;
+    }
+
+    .about_break {
+        border-bottom:2px solid #fff;
+        margin-top: 40px!important;
     }
 
     .app__about-main p {
@@ -94,7 +109,7 @@
     .center {
         margin: 100px 0;
         padding: 40px;
-        margin-top: 50px!important;
+        margin-top: 1px!important;
     }
 
     .center2{
@@ -114,4 +129,8 @@
         margin-top: 0!important; 
         margin-left: 0!important;
     }
+}
+
+@media(max-width: 1074){
+   
 }

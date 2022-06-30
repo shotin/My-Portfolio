@@ -1,5 +1,9 @@
 @import url('http://fonts.cdnfonts.com/css/clash-display');
 
+.main_bg {
+    background-image: url(../../assets/main_bg.png);
+}
+
 .app__comic h1 {
     font-size: 65px;
     font-family: 'Clash Display', sans-serif;                                           

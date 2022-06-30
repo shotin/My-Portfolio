@@ -1,8 +1,15 @@
 @import url('https://api.fontshare.com/css?f[]=clash-display@700&display=swap');
 .volt_img {
-    /* width: 400px;
-    height: 400px; */
     overflow: hidden; 
+    margin-left: -10px;
+}
+
+.comicVolt {
+    margin-top: 40px!important;
+}
+
+.volt_min {
+    display: none;
 }
 
 .inner-img {
@@ -19,19 +26,59 @@
     /* color: #000; */
 }
 
-/* .ourcomics {
-    padding: 20px!important;
-} */
 
-@media(max-width:760px){
+@media(max-width:1000px) {
+    .volt_read a {
+        font-size: 15px;
+      }
+
+      .comicVolt {
+        margin-top: 100px!important;
+        margin-left: 20px;
+    }
+    
+    .volt_img img {
+        width: 900px;
+    }
+
+    .volt_img {
+        margin-left: 0;
+    }
+}
+
+@media(max-width:700px){
     .ourcomics {
-        padding: 20px!important;
-        text-align: center; 
-        /* border: none!important; */
+        width: 100%!important;
     }
 
     .ourcomics img {
-        padding: 20px!important;
+        width: 100%!important;
     }
+
+    .volt__margin {
+        margin: -24px!important;
+    }
+
+    .volt_max {
+        display: none;
+    }
+
+    .volt_min {
+        display: inline;
+        padding: -50px!important;
+    }
+
+    .volt_all {
+        margin-top: 20px!important;
+        margin-left: 0px!important;
+    }
+
+    .volt_read a {
+        margin-bottom: 50px!important;
+    }
+    
+    /* .volt__height {
+       height: 340px!important;
+    } */
  }
 

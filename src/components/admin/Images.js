@@ -16,7 +16,7 @@ export default class Images extends Component {
 
   getImages = () => {
     axios
-      .get("https://arcane-dawn-86332.herokuapp.com/api/images")
+      .get("http://localhost:8000/api/images")
       .then((response) => {
         if (response.status === 200) {
           this.setState({
