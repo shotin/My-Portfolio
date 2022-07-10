@@ -1,0 +1,41 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Write you own custom component styles here */
+
+.ease-in-animation {
+  @apply transition duration-500 ease-in-out;
+}
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+
+.subscribeimg img   {
+  width: 1350px!important;
+ margin-left: -600px;
+ margin-top: 28px;
+} 
+
+@media (min-width: 1024px) {
+  .btn-menu {
+    display: none;
+    position: relative;
+  }
+}
+
+@media(max-width: 767px){
+  
+  .subscribeimg img   {
+   width: 850px!important;
+   margin-left: -400px;
+   margin-top: -50px;
+} 
+}

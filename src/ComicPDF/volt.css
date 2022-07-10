@@ -2,4 +2,14 @@
     .logo {
         width: 150px;
     }
+
+    .volt-img {
+        width: 15px!important;
+    }
+}
+
+@media(min-width:1100px){
+    .volt-img {
+        width: 100%!important;
+    }
 }

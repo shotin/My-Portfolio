@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import { images } from  '../../constants/index'
 import { FaAngleUp } from 'react-icons/fa';
+import axios from 'axios';
+import moment from 'moment';
 import './cryptoDetails.css'
 
 const CryptoDetails = () => {
+    const { id } = useParams()
     const [showTopBtn, setShowTopBtn] = useState(false);
+    const [title, setTitle] = useState("")
+    const [description, setDescription] = useState("")
+    const [time, setTime] = useState("")
+    const [image, setImage] = useState(null)
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
@@ -16,6 +23,20 @@ const CryptoDetails = () => {
             }
         });
     }, []);
+
+    useEffect(()=>{
+        fetchProduct()
+      },[])
+    
+      const fetchProduct = async () => {
+        await axios.get(`https://blooming-spire-26791.herokuapp.com/api/categories/${id}`).then(({data})=>{
+          const { title, description, image, created_at } = data.categories
+          setTitle(title)
+          setDescription(description)
+          setImage(image)
+          setTime(created_at)
+        })
+      }
 
     const goToTop = () => {
         window.scrollTo({
@@ -31,9 +52,9 @@ const CryptoDetails = () => {
                         <div className="container">
                             <div className="row news_details">
                                 <div className="col-sm-6" style={{marginTop: '320px'}}>
-                                    <p className='text-white fw-bold'> Apr 21, 2022</p>
-                                    <h2 className='text-uppercase fw-bolder text-white'>Crypto Comics Lab is the<br></br> Next Big Thing.</h2>
-                                    <p className='text-white'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus suscipit et, sollicitudin cursus.</p>
+                                    <p className='text-white fw-bold'>{moment(time).startOf('ss').fromNow()}</p>
+                                    <h2 className='text-uppercase fw-bolder text-white'>{title}</h2>
+                                    <p className='text-white'>{description}</p>
                                     <p style={{color: 'orange'}}>Mr Samuel</p>
                                     <img style={{cursor: 'pointer'}} onClick={() => history.goBack()} src={images.back} alt="back" className='mb-4 mt-2' />
                                 </div>

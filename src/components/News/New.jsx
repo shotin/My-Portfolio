@@ -1,13 +1,26 @@
 import React, {useState, useEffect} from 'react'
 import { images } from  '../../constants/index'
 import { Link } from 'react-router-dom';
-// import MailchimpSubscribe from 'react-mailchimp-subscribe';
-// import NewsletterForm from './NewsletterForm';
+import moment from 'moment';
+
 import { FaAngleUp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import './news.css'
+import axios from 'axios';
 
 const News = () => {
+    const [products, setProducts] = useState([])
+
+    useEffect(()=>{
+        fetchProducts() 
+    })
+
+    const fetchProducts = async () => {
+        await axios.get(`https://blooming-spire-26791.herokuapp.com/api/categories`).then(({data})=>{
+            setProducts(data)
+        })
+    }
+
     const [showTopBtn, setShowTopBtn] = useState(false);
 
     useEffect(() => {
@@ -91,48 +104,24 @@ const News = () => {
                 <section className='app__news-volt'>
                     <div className="container gap-100">
                         <div className="row">
-                            <div className="col-sm-6 app__next-big p-2 mb-5">
-                                 <p> Apr 21, 2022</p>
-                                 <Link className=''  to="/cryptoDetails"><h2 className='text-uppercase font-weight-bolder'>Crypto Comics Lab is the<br></br> Next Big Thing.</h2></Link>
-                                 <p className='w-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus suscipit et, sollicitudin cursus.</p>
-                            </div>
-                
-                            <div className="col-sm-6 seap_atm request_me mb-5">  
-                                <img src={images.new_pix} className="img-fluid" alt="" />
-                            </div>
-                            <hr style={{width: '90%'}} />
-                            
-                            <div className="col-sm-6 app__next-big p-2 mb-5 mt-5">
-                                 <p> Apr 21, 2022</p>
-                                 <a className='text-dark' href='#'><h2 className='text-uppercase font-weight-bolder'>Crypto and Comics, the new wave of creativity</h2></a>
-                                 <p className='w-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus suscipit et, sollicitudin cursus.</p>
-                            </div>
-                
-                            <div className="col-sm-6 seap_atm request_me mb-5 mt-5">  
-                                <img src={images.newshot} className="img-fluid" alt="" />
-                            </div>
-                            <hr style={{width: '90%'}} />
-
-                            <div className="col-sm-6 app__next-big p-2 mb-5 mt-5">
-                                 <p> Apr 21, 2022</p>
-                                 <a className='text-dark' href='#'><h2 className='text-uppercase font-weight-bolder'>Volt Issue 1 Drops<br></br> Tomorrow</h2></a>
-                                 <p className='w-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus suscipit et, sollicitudin cursus.</p>
-                            </div>
-                
-                            <div className="col-sm-6 seap_atm request_me mb-5 mt-5">  
-                                <img src={images.newvolt} className="img-fluid" alt="" />
-                            </div>
-                            <hr style={{width: '90%'}} />
-
-                            <div className="col-sm-6 app__next-big p-2 mb-5 mt-5">
-                                 <p> Apr 21, 2022</p>
-                                 <a className='text-dark' href='#'><h2 className='text-uppercase font-weight-bolder'>Crypto Comics Lab is the<br></br> Next Big Thing.</h2></a>
-                                 <p className='w-75'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cursus suscipit et, sollicitudin cursus.</p>
-                            </div>
-                
-                            <div className="col-sm-6 seap_atm request_me mb-5 mt-5">  
-                                <img src={images.new_pix} className="img-fluid" alt="" />
-                            </div>
+                        {
+                                    products.length > 0 && (
+                                        products.map((row, key)=>(
+                                          <React.Fragment key={key}>
+                                                <div className="col-sm-6 app__next-big p-2 mb-5">
+                                                    <p>{moment(row.created_at).startOf('ss').fromNow()}</p>
+                                                        <Link to={`/cryptoDetails/${row.id}`}><h2 className='text-uppercase font-weight-bolder'>{row.title}.<br></br></h2></Link>
+                                                        <p className='w-75'>{row.description.substring(0, 100)}.....</p>
+                                                </div>
+                                    
+                                                <div className="col-sm-6 seap_atm request_me mb-5">
+                                                    <img className="img-fluid" alt={row.title} src={`https://blooming-spire-26791.herokuapp.com/storage/categories/image/${row.image}`} />
+                                                </div>
+                                                <hr style={{width: '90%'}} />
+                                          </React.Fragment>
+                                        ))
+                                    )
+                                }
                         </div>
                     </div>
                 </section>

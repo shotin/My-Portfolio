@@ -29,30 +29,30 @@ const Home = () => {
                              <p className="fa-2x d-flex">
                              {show ? (
                                 <div>
-                                    <a style={{cursor: 'pointer'}}>
+                                    <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                            <i  onClick={handleOnClickHide} className='fa fa-minus text-white'></i>
-                                     </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                     </a>
                                 </div>
                                ) : <div>
-                                        <a style={{cursor: 'pointer'}}>
+                                        <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                             <i onClick={handleOnClick} className='fa fa-plus text-white'></i>
-                                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
                                     </div>}                                    
                                  {show ? (
                                      <div>
-                                         <a style={{cursor: 'pointer'}}>
+                                         <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                               {/* <img style={{cursor: 'pointer'}} onClick={handleOnClick} src={images.gitBook} alt="gitbook" /> */}
                                               <span><i class="fa-solid fa-book text-white"></i></span>
-                                         </a>&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <a style={{cursor: 'pointer'}}>
+                                         </a>
+                                        <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                             <span><i className="fa-brands fa-twitter text-white"></i></span>
-                                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
         
-                                        <a style={{cursor: 'pointer'}}>
+                                        <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                             <span><i className="fab fa-telegram text-white"></i></span>
-                                        </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                        </a>
                                         
-                                        <a style={{cursor: 'pointer'}}>
+                                        <a style={{cursor: 'pointer', marginRight: '30px'}}>
                                             <span><i className="fa-solid fa-envelope text-white" ></i></span>
                                         </a>
                                      </div>

@@ -1,150 +1,79 @@
-import React, { useState } from "react";
-import Admin from "./Admin";
-
-
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import Swal from 'sweetalert2';
 import "./style/style.css";
 
-function Login() {
-  
- const loginSuccess = () => {
-    localStorage.clear();
-    window.location.href = 'http://localhost:3000/admin';
-}
+function Login() { 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
-  
-  // React States
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
-
-  // User Login info
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
+  useEffect(() => {
+    if (localStorage.getItem('user-info')) {
+        history.push("/login");
     }
-  ];
+  }, [])
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
+  
+    const login = async () => {
+      let item = {email, password};
 
-  const handleSubmit = (event) => {
-    //Prevent page reload
-    event.preventDefault();
+     let result = await axios.post(`https://blooming-spire-26791.herokuapp.com/api/login`, item)
 
-    var { uname, pass } = document.forms[0];
-
-    // Find user login info
-    const userData = database.find((user) => user.username === uname.value);
-
-    // Compare user info
-    if (userData) {
-      if (userData.password !== pass.value) {
-        // Invalid password
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
+      result = result.data;
+      localStorage.setItem("user-info", JSON.stringify(result))
+      if (result.email == 'hello@cryptomrsami') {
+        history.push('/layout')
+      }else {
+        Swal.fire({
+          text:"Email or password is incorrect",
+          icon:"error"
+        })
       }
-    } else {
-      // Username not found
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-  };
+      // history.push('/layout')
 
-  // Generate JSX code for error message
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
-
-  // JSX code for login form
-  const renderForm = (
-    <React.Fragment>
-      <div className="form">
-        <form onSubmit={handleSubmit}>
-          <div className="input-container">
-            <label>Username </label>
-            <input type="text" name="uname" required />
-            {renderErrorMessage("uname")}
-          </div>
-          <div className="input-container">
-            <label>Password </label>
-            <input type="password" name="pass" required />
-            {renderErrorMessage("pass")}
-          </div>
-          <div className="button-container">
-            <input type="submit" />
-          </div>
-        </form>
-      </div>
-    </React.Fragment>
-  );
+    //   let item={password, email};
+    //   let result = await fetch("https://blooming-spire-26791.herokuapp.com/api/register", {
+    //    method: 'POST',
+    //    body: JSON.stringify(item),
+    //    headers: {
+    //       "Content-Type": 'application/json',
+    //       "Accept": 'application/json'
+    //    }
+    // });
+    //  result = await result.json();
+    //  localStorage.setItem('user-info', JSON.stringify(result))
+    //  history.push('/layout')
+  }
 
   return (
    <React.Fragment>
          <div className="app">
             <div className="login-form">
               <div className="title title_dark">Sign In</div>
-              {isSubmitted ? null  : renderForm}
+               <div className="form">
+                  <div className="input-container">
+                    <label>Email </label>
+                    <input type="email" className="text-dark" placeholder="Enter Email" onChange={(e) => setEmail(e.target.value)} value={email} name="email" required />
+                  </div>
+
+                  <div className="input-container">
+                    <label>Password </label>
+                    <input type="password" className="text-dark" placeholder="Enter password" onChange={(e) => setPassword(e.target.value)} value={password} name="pass" required />
+                  </div>
+
+                  <div className="button-container">
+                    <input onClick={login} type="submit" />
+                  </div>
+              </div>
             </div>
         </div>
 
         <div>
-        {isSubmitted ? <Admin /> : null}
         </div>
    </React.Fragment>
   );
 }
 
 export default Login;
-
-// import React, { useState } from "react";
-// import Form from "react-bootstrap/Form";
-// import Button from "react-bootstrap/Button";
-// // import { Auth } from "aws-amplify";
-// import "./style/style.css";
-
-// export default function Login() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-
-//   function validateForm() {
-//     return email.length > 0 && password.length > 0;
-//   }
-
-//   function handleSubmit(event) {
-//     event.preventDefault();
-//   }
-
-//   return (
-//     <div className="Login">
-//       <Form onSubmit={handleSubmit}>
-//         <Form.Group size="lg" controlId="email">
-//           <Form.Label>Email</Form.Label>
-//           <Form.Control
-//             autoFocus
-//             type="email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//         </Form.Group>
-//         <Form.Group size="lg" controlId="password">
-//           <Form.Label>Password</Form.Label>
-//           <Form.Control
-//             type="password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//         </Form.Group>
-//         <Button block="true" size="lg" type="submit" disabled={!validateForm()}>
-//           Login
-//         </Button>
-//       </Form>
-//     </div>
-//   );
-// }

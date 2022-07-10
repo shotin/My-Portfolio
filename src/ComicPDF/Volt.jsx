@@ -1,4 +1,6 @@
 import React from 'react'
+import WebViewer from '@pdftron/pdfjs-express-viewer';
+
 import { Worker } from '@react-pdf-viewer/core';
 import { Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
@@ -71,18 +73,11 @@ export default Volt
 
 // return (
 // 	<>
-// 	<div className="container">
-// 	<Document
-// 		file={images.voltpdf1}
-// 		onLoadSuccess={onDocumentLoadSuccess}
-// 	>
-// 		<Page pageNumber={pageNumber} />
-// 	</Document>
-// 	<div>
+//   	<div className='p-2 text-white' style={{textAlign: 'center', marginBottom: '40px!important', backgroundColor: '#3E3C53'}}>
 // 		<div className="pagec">
 // 		Page {pageNumber || (numPages ? 1 : '--')} of {numPages || '--'}
 // 		</div>
-// 		<div className="buttonc">
+// 		<div className="button mb-1">
 // 		<button
 // 		type="button"
 // 		disabled={pageNumber <= 1}
@@ -97,10 +92,18 @@ export default Volt
 // 		disabled={pageNumber >= numPages}
 // 		onClick={nextPage}	
 // 		>
-// 		Next
+// 		&nbsp;&nbsp;&nbsp;Next
 // 		</button>
 // 		</div>
 // 	</div>
+
+// 	<div className="container volt-img">
+// 	<Document
+// 		file={images.voltpdf1}
+// 		onLoadSuccess={onDocumentLoadSuccess}
+// 	>
+// 		<Page width={350} pageNumber={pageNumber} />
+// 	</Document>
 // 	</div>
 // 	</>
 // );

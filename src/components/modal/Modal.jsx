@@ -9,12 +9,12 @@ function Modal({product}) {
               <div className="col-md-4">
                 <img
                   alt={product.name} className='img-fluid'
-                  src={`http://localhost:8000/uploads/${product.image_name}`}
+                  src={`http://localhost:8000/storage/character/image/${product.image}`}
                 />
               </div>
               <div className="col-md-8">
                 <div className="card-body">
-                <h1 className='fw-bold comic described'>{product.name}</h1>
+                <h1 className='fw-bold comic described'>{product.title}</h1>
                   <p className="card-text described">
                     {product.description}<br />         
                   </p>              

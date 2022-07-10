@@ -18,14 +18,25 @@ function Explore() {
   const handleClose = ()=> setIsOpen(false)
   const handleOpen = ()=> setIsOpen(true)
 
-  useEffect(() => {
-       axios.get("http://localhost:8000/api/images").then((response) => {
-          setIsLoading(false)
-          setImages(response.data.data);
-          // https://dashboard.heroku.com/apps/arcane-dawn-86332
-          // http://localhost:8000/api/images
+  // useEffect(() => {
+  //      axios.get("http://localhost:8000/api/character").then((response) => {
+  //         setIsLoading(false)
+  //         setImages(response.data);
+  //         // https://dashboard.heroku.com/apps/arcane-dawn-86332
+  //         // http://localhost:8000/api/images
+  //   })
+  // }, [])
+
+  useEffect(()=>{
+    fetchImages() 
+})
+
+const fetchImages = async () => {
+    await axios.get(`https://blooming-spire-26791.herokuapp.com/api/character`).then(({data})=>{
+        setIsLoading(false)
+        setImages(data);
     })
-  }, [])
+}
 
 
   const getImageById = (id) => {
@@ -55,16 +66,18 @@ function Explore() {
               <Spinner color="white" />
           </div>
             :
+            images.length > 0 && (
             images.map((image) => (
               <div className="col-lg-3 col-sm-6 mt-5 upload">
               <div class="card shadow nft_img volt_img text-center w-100">
-                <img src={"http://localhost:8000/uploads/" + image.image_name} class="card-img-top inner-img img-fluid"/>
+                <img  src={`http://localhost:8000/storage/character/image/${image.image}`} class="card-img-top inner-img img-fluid"/>
                 <div className="card-body">
-                  <button className="btn btn-sm text-white" onClick={()=>getImageById(image.id)}>{image.name}</button>                              
+                  <button className="btn btn-sm text-white" onClick={()=>getImageById(image.id)}>{image.title}</button>                              
                 </div>
               </div>
             </div>
             ))
+            )
           }
         </div>
     </div>

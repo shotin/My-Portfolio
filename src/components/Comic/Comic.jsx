@@ -31,9 +31,9 @@ const Comic = () => {
                         <div className="card-body">
                           <h2 className="card-title">VOLT1</h2>      
                               <p>Short bio about the comic</p>
-                              {/* <Link  className='btn text-white mt-3' to="/Volt" target="_blank" style={{ backgroundColor:'#882CC4', border:'none!important'}}>READ NOW               
-                             </Link> */}
-                             <a className='btn text-white mt-3'  style={{ backgroundColor:'#882CC4', border:'none!important'}} href={images.voltpdf1} target="_blank" >READ NOW</a>
+                              <Link  className='btn text-white mt-3' to="/Volt" target="_blank" style={{ backgroundColor:'#882CC4', border:'none!important'}}>READ NOW               
+                             </Link>
+                             {/* <a className='btn text-white mt-3'  style={{ backgroundColor:'#882CC4', border:'none!important'}} href={images.voltpdf1} target="_blank" >READ NOW</a> */}
                         </div>
                       </div>
                     </div>
