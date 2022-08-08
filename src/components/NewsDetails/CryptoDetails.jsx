@@ -29,7 +29,7 @@ const CryptoDetails = () => {
       },[])
     
       const fetchProduct = async () => {
-        await axios.get(`https://blooming-spire-26791.herokuapp.com/api/categories/${id}`).then(({data})=>{
+        await axios.get(`https://cryptocomicslab.com/api/categories/${id}`).then(({data})=>{
           const { title, description, image, created_at } = data.categories
           setTitle(title)
           setDescription(description)
@@ -52,16 +52,12 @@ const CryptoDetails = () => {
                         <div className="container">
                             <div className="row news_details">
                                 <div className="col-sm-6" style={{marginTop: '320px'}}>
-                                    <p className='text-white fw-bold'>{moment(time).startOf('ss').fromNow()}</p>
+                                    <p className='text-white fw-bold'>{moment(time).format('MMMM Do YYYY, h:mm a')}</p>
                                     <h2 className='text-uppercase fw-bolder text-white'>{title}</h2>
                                     <p className='text-white'>{description}</p>
                                     <p style={{color: 'orange'}}>Mr Samuel</p>
                                     <img style={{cursor: 'pointer'}} onClick={() => history.goBack()} src={images.back} alt="back" className='mb-4 mt-2' />
                                 </div>
-
-                                {/* <div className="col-sm-6" style={{marginTop: '390px'}}>
-                                    <img src={images.back} alt="back" />
-                                </div> */}
                             </div>
                         </div>
                     </div>

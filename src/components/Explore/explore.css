@@ -1,12 +1,27 @@
 @import url('https://api.fontshare.com/css?f[]=clash-display@700&display=swap');
+
+@font-face {
+  font-family: 'cibreo';
+  src: url('../../Fonts/cibreo.ttf');
+}
+
+@font-face {
+  font-family: 'Campton';
+  src: url('../../Fonts/CamptonSemiBold.otf');
+}
+
 .comic {
     font-family: 'Clash Display', sans-serif!important;
     font-weight: bolder;
     /* color: #000; */
 }
 
-.nft_img {
-    width: 80%!important;
+.upload img {
+  min-height: 100px!important;
+}
+
+.volt_btn {
+  font-family: 'cibreo';
 }
 
 .nft_img button{
@@ -20,18 +35,23 @@
 }
 
 .volt_img {
+  transition: 1.9s;
+}
+
+.volt_img:hover {
+  transform: scale(1.1);
+}
+
+.volt_img {
     /* width: 400px;
     height: 400px; */
     overflow: hidden; 
 }
-  
-  .inner-img {
-      transition: 1.9s;
-  }
-  
-  .inner-img:hover {
-      transform: scale(1.1);
-  }
+
+.btn:focus {
+  outline: none!important;
+  box-shadow: none!important;
+}
 
   .loader {
     height: 100vh;
@@ -48,12 +68,19 @@
     left: 50%;
   }
 
+  @media(min-width:1000px) {
+    .upload {
+      margin-bottom: 20px;
+    }
+  }
+
   @media(max-width:750px){
       .upload  {
         /* padding: 40px!important; */
         text-align: center!important;
         width: 100px;
         /* margin-left: 25px!important; */
+        margin-bottom: none!important;
       }
 
       .voltBig h1 {

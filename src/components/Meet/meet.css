@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'cibreo';
+    src: url('../../Fonts/cibreo.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Campton';
+    src: url('../../Fonts/CamptonSemiBold.otf');
+  }
+
 .meetBorder {
     border-right: 0.5px solid #000;
     border-bottom: 0.5px solid #000;
@@ -12,6 +22,24 @@
     overflow: hidden;
     display: flex;
 }
+
+.getHover h4 {
+    font-family: 'Clash Display';
+}
+
+.getHover p {
+    font-family: 'cibreo';
+}
+
+.app__desribe-small h4 {
+    font-family: 'Clash Display';
+}
+
+
+.app__desribe-small p {
+    font-family: 'cibreo';
+}
+
 
 #container2 {
     display: inline-flex;
@@ -41,6 +69,7 @@
  -webkit-transition: visibility 0s, opacity 0.5s linear; 
  transition: visibility 0s, opacity 0.5s linear;
  font-weight: bolder;
+ font-family: 'Campton';
 }
 
 .getBorder img {
@@ -170,8 +199,7 @@
     }
 
     .sideImg img {
-        width: 90vw; 
-        position: absolute;
+        display: none!important;
       }
 
       .getHover h4{

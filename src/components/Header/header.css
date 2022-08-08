@@ -1,5 +1,15 @@
 @import url('http://fonts.cdnfonts.com/css/clash-display');
 
+@font-face {
+    font-family: 'cibreo';
+    src: url('../../Fonts/cibreo.ttf');
+  }
+
+  @font-face {
+    font-family: 'Campton';
+    src: url('../../Fonts/CamptonSemiBold.otf');
+  }
+
 .main_bg {
     background-image: url(../../assets/main_bg.png);
 }
@@ -16,6 +26,7 @@
     background-color:#882CC4;
     font-size: 25px;
     cursor: pointer!important;
+    font-family: 'Campton';
 }
 
 .app__comic a:hover{

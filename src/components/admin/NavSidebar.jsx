@@ -60,6 +60,12 @@ export const NavSidebar = () => {
               title: "Upload Characters",
               itemId: "/character",
               elemBefore: () => <Icon name="cloud-snow" />
+            },
+
+            {
+              title: "Upload Comic",
+              itemId: "/comichome",
+              elemBefore: () => <Icon name="cloud-snow" />
             }
           ]}
         />

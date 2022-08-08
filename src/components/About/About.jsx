@@ -14,10 +14,6 @@ const About = ({}) => {
   }
   return (
     <Fragment>
-      {/* <div class="img">
-            <img src="/img/team/jerry.png" alt="" />
-              <div class="mask">Decade in game development,operation and marketing, ranked most downloaded game in IOS app store.</div>
-      </div> */}
        <div>
            <div className="app__about-main aboutUp">
               <div className="container">
@@ -53,13 +49,14 @@ const About = ({}) => {
                                <a href='#'><i className="fa-solid fa-envelope"></i>&nbsp;&nbsp;&nbsp;&nbsp;
                                 <span>
                                 <Mailto email="hello@cryptocomicslab.com" subject="Hello" body="Hello world!">
-                                hello@cryptocomicslab.com
+                                    hello@cryptocomicslab.com
                                 </Mailto>
                                 </span>
                               </a>
                             </p>
                             <p className='text-white mt-3'><a href='tel:+2349071647043'><i className="fa-solid fa-phone"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>+2349071647043</span></a></p>
-                            <p className='text-white mt-3'><a href='#'><i className="fa-solid fa-paper-plane"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>Crypto Comics Lab</span></a>
+                            <p className='text-white mt-3'><a href='#'>
+                              <i className="fab fa-discord"></i>&nbsp;&nbsp;&nbsp;&nbsp;<span>Crypto Comics Lab</span></a>
                           </p>
                       </div>
                   </div>

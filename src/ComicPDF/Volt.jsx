@@ -1,6 +1,4 @@
 import React from 'react'
-import WebViewer from '@pdftron/pdfjs-express-viewer';
-
 import { Worker } from '@react-pdf-viewer/core';
 import { Viewer } from '@react-pdf-viewer/core';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
@@ -20,7 +18,7 @@ const fullScreenPluginInstance = fullScreenPlugin();
 
 return (
      <React.Fragment>
-            <Link to="/home"><a className="container navbar-brand mt-4"><img className=' logo' src={ images.logo } alt="logo" /></a></Link>
+            <Link to="/comic"><a className="container navbar-brand mt-4"><img className=' logo' src={ images.logo } alt="logo" /></a></Link>
           <div className='container-fluid'>
                  <div className="row">
                       <div className="col-sm-12">

@@ -1,6 +1,26 @@
+@font-face {
+    font-family: 'cibreo';
+    src: url('../../Fonts/cibreo.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Campton';
+    src: url('../../Fonts/CamptonSemiBold.otf');
+  }
+
 .app__about-main {
     background-color: blueviolet;
     height: 468px!important;
+}
+
+.aboutUp p {
+    font-family: 'Campton';
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+    text-align: left;
+    
 }
 
 .app__about-main h1 {
@@ -57,6 +77,13 @@
 .center3 a {
     text-decoration: none;
     color: aliceblue;
+    font-family: 'Campton';
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: -0.02em;
+    text-align: left;
+
 }
 
 .center3 a:hover {
@@ -79,7 +106,7 @@
        }
 }
 
-@media(max-width: 760px){
+@media(max-width: 560px){
     .app__about-main {
         padding: 20px;
         height: 685px!important;
@@ -88,13 +115,21 @@
     .aboutUp {
         margin-top: -9px!important;
     }
+        
+    .aboutUp p {
+        font-size: 11px;
+    }
+
+    .center3 a {
+        font-size: 12px;
+    }
 
     .app__about-main h1 {
         font-size: 20px;
     }
 
     .readbook img {
-     margin-top: -90px!important;
+     margin-top: -98px!important;
     }
 
     .about_break {
@@ -131,6 +166,24 @@
     }
 }
 
-@media(max-width: 1074){
-   
+@media(min-width: 500px){
+    .center p {
+        font-size: 14px!important;
+        line-height: 30px!important;
+    }
+
+    .center2 h1 {
+        font-size: 35px!important;
+    }
+
+    .center3 a {
+        font-size: 19px;
+    }
+}
+
+@media(min-width: 1000px){
+    .center p {
+        font-size: 20px!important;
+        line-height: 38px!important;
+    }
 }

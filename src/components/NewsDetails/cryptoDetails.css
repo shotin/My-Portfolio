@@ -1,3 +1,26 @@
+@font-face {
+  font-family: 'cibreo';
+  src: url('../../Fonts/cibreo.ttf');
+}
+
+@font-face {
+  font-family: 'Campton';
+  src: url('../../Fonts/CamptonSemiBold.otf');
+}
+
+.news_details p {
+  font-family: 'cibreo';
+  font-family: 18px;
+}
+
+.news_details h2 {
+  font-family: 'Clash Display';
+  font-family: 18px;
+  font-weight: 700;
+  Line-height:32.38px
+
+}
+
 .affect_us p {
     text-align: justify;
 }

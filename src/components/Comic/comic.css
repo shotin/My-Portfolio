@@ -55,17 +55,20 @@
         width: 100%!important;
     }
 
-    .volt__margin {
-        margin: -24px!important;
+    .volt_img {
+        margin-bottom: 40px!important;
     }
 
     .volt_max {
-        display: none;
+      margin-left: 14px;
     }
 
-    .volt_min {
-        display: inline;
-        padding: -50px!important;
+    .inner-img {
+        transition:none;
+    }
+    
+    .inner-img:hover {
+        transform: none;
     }
 
     .volt_all {

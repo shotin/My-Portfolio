@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { Spinner } from 'reactstrap';
 import { images } from  '../../constants/index'
 import { Link } from 'react-router-dom';
 import moment from 'moment';
@@ -7,16 +8,18 @@ import { FaAngleUp } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import './news.css'
 import axios from 'axios';
-
+import './new.scss'
 const News = () => {
     const [products, setProducts] = useState([])
+    const [IsLoading, setIsLoading] = useState(true);
 
     useEffect(()=>{
         fetchProducts() 
     })
 
     const fetchProducts = async () => {
-        await axios.get(`https://blooming-spire-26791.herokuapp.com/api/categories`).then(({data})=>{
+        await axios.get(`https://cryptocomicslab.com/api/categories`).then(({data})=>{
+            setIsLoading(false)
             setProducts(data)
         })
     }
@@ -73,6 +76,8 @@ const News = () => {
     </div>
   )
 
+  const sortedProducts = products.reverse()
+
 
   return (
        <React.Fragment>
@@ -82,16 +87,29 @@ const News = () => {
                         <div className="col-sm-6 seap_me p-2">
                             <h1 className='comic text-uppercase'>Crypto Comics Lab News</h1>
                             <p className='text-uppercase'>Weekly Reports from Our Lab Analysis.</p>
-                           {/* <div className='d-flex'> */}
-                          
-                              <form onSubmit={handleSubmit}>
-                                    <input type="email" name='email' className='form-control p-2 mb-3' placeholder='Enter Email' required />
-                                    <button type='submit' className="btn text-white" style={{background: '#684182', border: 'none!important'}}>
-                                       Subscribe
-                                    </button>
-                                    {status && renderAlert()}
-                              </form>
-                           
+                              <div id="subscription_area">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="subscribe_now">
+
+                                            <form onSubmit={handleSubmit} class="subscribe_form">
+                                                <div class="input-group w-100">
+                                                    <input type="email" name='email' className='form-control p-4 mb-3' placeholder='Enter Email' required />
+                                                    <span class="input-group-btn">
+                                                            <button class="btn btn-default" className='old_btn' style={{padding:'12px', margin: '0.2px'}} type="submit">
+                                                                 Subscribe
+                                                            </button>
+                                                    </span>
+                                                </div>
+                                                <button className="btn btn-default w-100" id="new_btn" style={{padding:'12px', margin: '0.2px'}} type="submit">Subscribe</button>
+                                                {status && renderAlert()} 
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                                </div>
                         </div>
             
                         <div className="col-sm-6 subscribeimg">  
@@ -104,20 +122,28 @@ const News = () => {
                 <section className='app__news-volt'>
                     <div className="container gap-100">
                         <div className="row">
-                        {
-                                    products.length > 0 && (
-                                        products.map((row, key)=>(
+                                 {
+                                     IsLoading ?
+                                     <div className="loader">
+                                         <Spinner color="white" />
+                                     </div>
+                                       :
+                                    sortedProducts.length > 0 && (
+                                        sortedProducts.map((row, key)=>(
                                           <React.Fragment key={key}>
                                                 <div className="col-sm-6 app__next-big p-2 mb-5">
-                                                    <p>{moment(row.created_at).startOf('ss').fromNow()}</p>
-                                                        <Link to={`/cryptoDetails/${row.id}`}><h2 className='text-uppercase font-weight-bolder'>{row.title}.<br></br></h2></Link>
+                                             
+                                                    <p>{moment(row.created_at).format('MMMM Do YYYY, h:mm a')}</p>
+                                                        <Link to={`/cryptoDetails/${row.id}`}>
+                                                            <h2 className='text-uppercase font-weight-bolder'>{row.title}.</h2>
+                                                        </Link>
                                                         <p className='w-75'>{row.description.substring(0, 100)}.....</p>
                                                 </div>
-                                    
+                                            
                                                 <div className="col-sm-6 seap_atm request_me mb-5">
-                                                    <img className="img-fluid" alt={row.title} src={`https://blooming-spire-26791.herokuapp.com/storage/categories/image/${row.image}`} />
+                                                    <img className="img-fluid" alt={row.title} src={`https://cryptocomicslab.com/uploads/${row.image}`} />
                                                 </div>
-                                                <hr style={{width: '90%'}} />
+                                                <hr style={{width: '100%'}} />
                                           </React.Fragment>
                                         ))
                                     )

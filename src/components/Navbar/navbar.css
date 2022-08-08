@@ -1,4 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;400&display=swap');
+@font-face {
+    font-family: 'cibreo';
+    src: url('../../Fonts/cibreo.ttf');
+  }
+
+  @font-face {
+    font-family: 'Campton';
+    src: url('../../Fonts/CamptonSemiBold.otf');
+  }
+
 .app__nav ul {
     text-align: center!important;
     margin-right: 140px!important;
@@ -55,6 +65,7 @@
 
 .logo1 img {
     width: 151px!important;
+    font-family: 'Campton';
 }
 
 .app__header-nav hr {
@@ -73,7 +84,8 @@
     display: inline-block;
     text-decoration: none;
     color: #000;
-    font-family: 'Fira Sans', sans-serif;
+    font-family: 'cibreo';
+    font-size: 18px;
 }
 
 .app__header li a::after {
@@ -151,6 +163,7 @@
     .cclabs a {
        text-decoration: none;
        color: #b03efb;
+       font-family: 'cibreo';
     }
 
     .explore__header-nav {

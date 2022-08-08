@@ -19,11 +19,11 @@ const Home = () => {
                <div className='landing_small'>
                       <div className='element'>
                            <div className='home'>
-                                <img src={images.bigsam} alt="comic" className='bigsam' />
+                                {/* <img src={images.small_pix} alt="comic" className='bigsam' /> */}
                            </div>
-                        <main className='landing'>
+                        <div className='landing'>
                             <img src={images.Mainone} className='img-fluid' alt="" />
-                        </main>
+                        </div>
                    <div className='container'>
                          <div className="row text-left icons">
                              <p className="fa-2x d-flex">
@@ -49,7 +49,7 @@ const Home = () => {
                                         </a>
         
                                         <a style={{cursor: 'pointer', marginRight: '30px'}}>
-                                            <span><i className="fab fa-telegram text-white"></i></span>
+                                            <span><i className="fab fa-discord text-white"></i></span>
                                         </a>
                                         
                                         <a style={{cursor: 'pointer', marginRight: '30px'}}>

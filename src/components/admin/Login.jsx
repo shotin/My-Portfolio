@@ -31,20 +31,6 @@ function Login() {
           icon:"error"
         })
       }
-      // history.push('/layout')
-
-    //   let item={password, email};
-    //   let result = await fetch("https://blooming-spire-26791.herokuapp.com/api/register", {
-    //    method: 'POST',
-    //    body: JSON.stringify(item),
-    //    headers: {
-    //       "Content-Type": 'application/json',
-    //       "Accept": 'application/json'
-    //    }
-    // });
-    //  result = await result.json();
-    //  localStorage.setItem('user-info', JSON.stringify(result))
-    //  history.push('/layout')
   }
 
   return (
@@ -64,7 +50,7 @@ function Login() {
                   </div>
 
                   <div className="button-container">
-                    <input onClick={login} type="submit" />
+                    <button className="btn btn-default" onClick={login} type="submit">Login</button>
                   </div>
               </div>
             </div>

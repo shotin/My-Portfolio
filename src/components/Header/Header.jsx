@@ -6,7 +6,7 @@ import './header.css'
 const Header = () => {
   return (
     <React.Fragment>
-     <header>
+     <header id="offdark">
         <div className='mbr-fullscreen p-5 text-center bg-image main_bg'
         >
         <div className='mask' style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}>

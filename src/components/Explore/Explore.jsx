@@ -10,9 +10,8 @@ function Explore() {
   const [images, setImages] = useState([])
   const [productImg, setProductImg] = useState([])
   const [IsLoading, setIsLoading] = useState(true);
-
-  // const [modals, setModal] = useState([])
   const [isOpen, setIsOpen]= useState(false)
+  const [searchTerm, setSearchTerm] = useState([])
 
 
   const handleClose = ()=> setIsOpen(false)
@@ -32,9 +31,9 @@ function Explore() {
 })
 
 const fetchImages = async () => {
-    await axios.get(`https://blooming-spire-26791.herokuapp.com/api/character`).then(({data})=>{
-        setIsLoading(false)
+    await axios.get(`https://cryptocomicslab.com/api/character`).then(({data})=>{
         setImages(data);
+        setIsLoading(false)
     })
 }
 
@@ -56,7 +55,7 @@ const fetchImages = async () => {
         </button>
         <div className="form-outline">
             <input type="search" id="form1" class="form-control" />
-            <label className="form-label" for="form1"><p className='search'>Search Specimen</p></label>
+            <label className="form-label" for="form1"><p className='search' onChange={(e) => setSearchTerm(e.target.value)}>Search Specimen</p></label>
         </div>
       </div>
         <div className="row">
@@ -68,11 +67,11 @@ const fetchImages = async () => {
             :
             images.length > 0 && (
             images.map((image) => (
-              <div className="col-lg-3 col-sm-6 mt-5 upload">
+              <div className="col-6 col-lg-3 mt-5 upload">
               <div class="card shadow nft_img volt_img text-center w-100">
-                <img  src={`http://localhost:8000/storage/character/image/${image.image}`} class="card-img-top inner-img img-fluid"/>
-                <div className="card-body">
-                  <button className="btn btn-sm text-white" onClick={()=>getImageById(image.id)}>{image.title}</button>                              
+                <img  src={`https://cryptocomicslab.com/uploads/${image.image}`} class="card-img-top inner-img1 img-fluid"/>
+                <div>
+                  <button className="btn btn-lg text-white volt_btn" onClick={()=>getImageById(image.id)}>{image.title}</button>                              
                 </div>
               </div>
             </div>

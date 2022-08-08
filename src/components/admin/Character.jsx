@@ -24,7 +24,7 @@ function Character() {
    <>
    <Navbar bg="primary">
       <Container>
-        <Link to={"/"} className="navbar-brand text-white">
+        <Link to={"/layout"} className="navbar-brand text-white">
             CryptoComicsLabs
         </Link>
 

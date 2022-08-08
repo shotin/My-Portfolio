@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   body {
@@ -13,6 +13,10 @@ export const GlobalStyles = createGlobalStyle`
 
   .app__header li a {
     color: ${({ theme }) => theme.navbarColor};
+  }
+
+  .volt_dark {
+    color: ${({ theme }) => theme.meet};
   }
 
   .app__next-big h2 {
@@ -84,7 +88,6 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.meet};
   }
 
-
   .seap_me h1  {
     color: ${({ theme }) => theme.navbarColor};
   }
@@ -96,16 +99,32 @@ export const GlobalStyles = createGlobalStyle`
   .coming__soon {
     color: ${({ theme }) => theme.meet};
   }
+
+  .nav-menu {
+    background-color: ${({ theme }) => theme.meet};
+  }
+
+  .app__header li a {
+    color: ${({ theme }) => theme.navbarColor};
+  }
+
+  .app_all {
+    background-color: ${({ theme }) => theme.meet};
+  }
+
+  .togg {
+    color: ${({ theme }) => theme.navbarColor};
+  }
 }`;
 
 export const lightTheme = {
-  body: '#fff',
-  text: '#121212',
+  body: "#fff",
+  text: "#121212",
 };
 
 export const darkTheme = {
-  body: '#121212',
-  text: '#fff',
-  navbarColor: '#fff',
-  meet: '#000'
-}
+  body: "#121212",
+  text: "#fff",
+  navbarColor: "#fff!important",
+  meet: "#000!important",
+};
